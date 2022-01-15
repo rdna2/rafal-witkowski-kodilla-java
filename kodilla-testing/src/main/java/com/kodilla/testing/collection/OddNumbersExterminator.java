@@ -4,10 +4,9 @@ import java.util.ArrayList;
 
 public class OddNumbersExterminator {
 
-    //public ArrayList<Integer> numbers;
+
 
     public ArrayList exterminate(ArrayList<Integer> numbers) {
-        //this.numbers = numbers;
 
         ArrayList<Integer> oddNumbers = new ArrayList<>();
 
