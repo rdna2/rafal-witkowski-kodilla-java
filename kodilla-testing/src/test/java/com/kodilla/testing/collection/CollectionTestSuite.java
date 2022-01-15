@@ -29,8 +29,8 @@ public class CollectionTestSuite {
 
     @DisplayName("When creating a new ArrayList within OddNumbersExterminator class, " +
             "the created ArrayList is tested against empty ArrayList. " +
-            "If the test is passed, the created ArrayList is empty."
-    )
+            "If the test is passed, the created ArrayList is empty.")
+
     @Test
     public void testOddNumbersExterminatorEmptyList() {
 
@@ -45,8 +45,6 @@ public class CollectionTestSuite {
         System.out.println("Tested List size: " + testedList.size());
 
         assertEquals(emptyList, testedList);
-
-
     }
 
     @DisplayName("When creating a new ArrayList within OddNumbersExterminator class" +
