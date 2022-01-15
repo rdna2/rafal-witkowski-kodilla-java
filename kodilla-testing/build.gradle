@@ -14,8 +14,7 @@ dependencies {
     implementation 'junit:junit:4.13.2'
     testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.2'
     testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.2'
-    implementation group: 'fr.iscpif.freedsl', name: 'random_2.12', version: '0.26'
-    implementation group: 'org.webjars.npm', name: 'available-typed-arrays', version: '1.0.5'
+
 }
 
 test {

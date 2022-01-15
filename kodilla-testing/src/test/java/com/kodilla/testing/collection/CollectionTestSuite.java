@@ -20,11 +20,11 @@ public class CollectionTestSuite {
         System.out.println("Finished test");
     }
     @BeforeAll
-    public static void beforeClass() {
+    public static void beforeAll() {
         System.out.println("Starting all tests");
     }
     @AfterAll
-    public static void afterClass() {
+    public static void afterAll() {
         System.out.println("All tests finished");
     }
 
@@ -42,11 +42,12 @@ public class CollectionTestSuite {
         OddNumbersExterminator run1 = new OddNumbersExterminator();
         ArrayList<Integer> testedList = run1.exterminate(inputList);
 
+        System.out.println("Empty List size: " + emptyList.size());
+        System.out.println("Tested List size: " + testedList.size());
 
         assertEquals(emptyList, testedList);
 
-        System.out.println("Empty List size: " + emptyList.size());
-        System.out.println("Tested List size: " + testedList.size());
+
     }
 
     @DisplayName("When creating a new ArrayList with OddNumbersExterminator class" +
@@ -60,20 +61,17 @@ public class CollectionTestSuite {
         Random generator = new Random();
         int a = generator.nextInt(10);
 
-        Integer input[] = new Integer [] {0,1,2,4,a};
-        ArrayList<Integer> fullList = new ArrayList<Integer> (Arrays.asList(input));
-
-        //fullList.add(0);
-        //fullList.add(1);
-        //fullList.add(4);
-        //fullList.add(8);
+        Integer[] input = new Integer [] {0,1,2,4,a};
+        ArrayList<Integer> fullList = new ArrayList<>(Arrays.asList(input));
 
         OddNumbersExterminator run2 = new OddNumbersExterminator();
         ArrayList<Integer> oddNumbersList = run2.exterminate(fullList);
 
+        System.out.println("Initial List: " + fullList + " Number of elements: " + fullList.size());
+        System.out.println("Final List: " + oddNumbersList + " Number of elements: " + oddNumbersList.size());
+
         assertEquals(fullList, oddNumbersList);
 
-        System.out.println("Initial List: " + fullList + " Number of elements: " + oddNumbersList.size());
-        System.out.println("Final List: " + oddNumbersList + " Number of elements: " + oddNumbersList.size());
+
     }
 }
