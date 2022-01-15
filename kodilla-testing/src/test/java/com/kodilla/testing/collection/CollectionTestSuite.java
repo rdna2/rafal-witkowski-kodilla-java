@@ -28,7 +28,7 @@ public class CollectionTestSuite {
         System.out.println("All tests finished");
     }
 
-    @DisplayName("When creating a new ArrayList with OddNumbersExterminator class, " +
+    @DisplayName("When creating a new ArrayList within OddNumbersExterminator class, " +
             "the created ArrayList is tested against empty ArrayList. " +
             "If the test is passed, the created ArrayList is empty."
     )
@@ -50,7 +50,7 @@ public class CollectionTestSuite {
 
     }
 
-    @DisplayName("When creating a new ArrayList with OddNumbersExterminator class" +
+    @DisplayName("When creating a new ArrayList within OddNumbersExterminator class" +
             "from input ArrayList, only odd numbers should be transferred. "+
             "If the test is passed, only odd numbers are in the inputArrayList")
     @Test
@@ -71,6 +71,8 @@ public class CollectionTestSuite {
         System.out.println("Final List: " + oddNumbersList + " Number of elements: " + oddNumbersList.size());
 
         assertEquals(fullList, oddNumbersList);
+        
+
 
 
     }
