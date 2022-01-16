@@ -55,19 +55,20 @@ public class CollectionTestSuite {
 
         //ArrayList<Integer> fullList = new ArrayList<Integer>();
 
-        Random generator = new Random();
-        int a = generator.nextInt(10);
-
-        Integer[] input = new Integer [] {0,1,2,4,a};
+        Integer[] input = new Integer [] {0,1,2,4};
         ArrayList<Integer> fullList = new ArrayList<>(Arrays.asList(input));
 
         OddNumbersExterminator run2 = new OddNumbersExterminator();
         ArrayList<Integer> oddNumbersList = run2.exterminate(fullList);
 
+        Integer[] input1 = new Integer [] {0,2,4};
+        ArrayList<Integer> evenList = new ArrayList<>(Arrays.asList(input1));
+
+
         System.out.println("Initial List: " + fullList + " Number of elements: " + fullList.size());
         System.out.println("Final List: " + oddNumbersList + " Number of elements: " + oddNumbersList.size());
 
-        assertEquals(fullList, oddNumbersList);
+        assertEquals(evenList, oddNumbersList);
         
 
 
