@@ -26,7 +26,8 @@ public class ForumTestSuite {
         testCounter++;
         System.out.println("Preparing to execute test #" + testCounter);
     }
-// @Nested
+
+    //@Nested
     @DisplayName("Tests for Posts")
     //public class TestPosts {
         @Test
@@ -87,11 +88,11 @@ public class ForumTestSuite {
         Assert.assertTrue(result);
         Assert.assertEquals(0, forumUser.getPostsQuantity());
     }
-   // }
+   //z }
 
-   // @Nested
+    @Nested
     @DisplayName("Tests for Comments")
-   // class TestComment {
+    class TestComment {
         @Test
         public void testAddComment () {
         //Given
@@ -159,5 +160,5 @@ public class ForumTestSuite {
         Assert.assertEquals(0, forumUser.getCommentsQuantity());
     }
     }
-//}
+}
 
