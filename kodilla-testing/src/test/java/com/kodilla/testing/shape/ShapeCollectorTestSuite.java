@@ -1,41 +1,37 @@
 package com.kodilla.testing.shape;
 
-import org.junit.*;
-import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Nested;
+import org.junit.jupiter.api.*;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-@DisplayName("START OF ALL TESTS")
+@DisplayName("Shape Collector Test Suite")
 public class ShapeCollectorTestSuite {
     private static int testCounter = 0;
 
-    @BeforeClass
-    public static void beforeStartTesting() {
-        System.out.println("Starting test.. ");
+    @BeforeAll
+    public static void beforeAllTests() {
+        System.out.println("This is the beginning of tests.");
     }
-    @AfterClass
-    public static void afterTest() {
+
+    @AfterAll
+    public static void afterAllTests() {
         System.out.println("All tests are finished.");
     }
-    @Before
+
+    @BeforeEach
     public void beforeEveryTest() {
         testCounter++;
         System.out.println("Preparing to execute test #" + testCounter);
     }
-    @After
-    public void after(){
-        System.out.println("Finished test");
-    }
 
-    //@Nested
-    //@DisplayName("TEST")
-    //class TestShapeCollector {
+    @Nested
+    @DisplayName("Tests for Operartions on Shape Collections")
+    class ShapeOperationsTests {
 
-        @DisplayName("Testing AddFigure to the ShapeCollector ArrayList")
+        @DisplayName("Testing AddFigure to ShapeCollector ArrayList")
 
         @Test
         public void testAddFigure() {
@@ -52,7 +48,7 @@ public class ShapeCollectorTestSuite {
             //Then
             assertEquals(3, collection.getCollection().size());
         }
-        @DisplayName("Testing RemoveFigure from the ShapeCollector ArrayList")
+        @DisplayName("Testing RemoveFigure from ShapeCollector ArrayList")
 
         @Test
         public void testRemoveFigure() {
@@ -70,7 +66,7 @@ public class ShapeCollectorTestSuite {
                        //Then
             assertEquals(2, collection.getCollection().size());
         }
-        @DisplayName("Testing GetFigureAsN_listedItem from the ShapeCollector ArrayList")
+        @DisplayName("Testing GetFigureAsN_listedItem from ShapeCollector ArrayList")
 
         @Test
         public void testGetFigureAsN_listedItemFromArrayList() {
@@ -88,7 +84,7 @@ public class ShapeCollectorTestSuite {
             //Then
             assertEquals(shape2, result);
         }
-    @DisplayName("Testing ShowAllShapes from the ShapeCollector ArrayList")
+        @DisplayName("Testing ShowAllShapes from ShapeCollector ArrayList")
 
         @Test
         public void testShowAllShapes() {
@@ -114,4 +110,4 @@ public class ShapeCollectorTestSuite {
         }
     }
 
-//}
+}

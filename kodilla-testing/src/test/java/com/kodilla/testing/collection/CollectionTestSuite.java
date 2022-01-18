@@ -51,7 +51,7 @@ public class CollectionTestSuite {
             "from input ArrayList, only odd numbers should be transferred. "+
             "If the test is passed, only odd numbers are in the inputArrayList")
     @Test
-            public void testOddNumbersExterminatorNormalList() {
+    public void testOddNumbersExterminatorNormalList() {
 
         //ArrayList<Integer> fullList = new ArrayList<Integer>();
 
@@ -69,7 +69,7 @@ public class CollectionTestSuite {
         System.out.println("Final List: " + oddNumbersList + " Number of elements: " + oddNumbersList.size());
 
         assertEquals(evenList, oddNumbersList);
-        
+
 
 
 
