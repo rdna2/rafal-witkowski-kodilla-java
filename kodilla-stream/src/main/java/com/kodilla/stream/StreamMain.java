@@ -14,5 +14,10 @@ public class StreamMain {
         poemBeautified.upper("Beautiful Evening ", " - Indeed, it is", (words,decoration) -> words + decoration);
         poemBeautified.subsequence("Beautiful Evening ", " - Evening to you", (words,decoration) -> words + decoration);
         poemBeautified.replaceAll("Beautiful Evening ", " - Evening to you", (words,decoration) -> words + decoration);
+        poemBeautified.replaceAll("Beautiful Evening ", " - Evening to you", PoemBeautifier::replaceAll1);
+
+        System.out.println("Using Stream to generate even numbers from 1 to 20");
+        com.kodilla.stream.iterate.NumbersGenerator.generateEven(20);
     }
+
 }

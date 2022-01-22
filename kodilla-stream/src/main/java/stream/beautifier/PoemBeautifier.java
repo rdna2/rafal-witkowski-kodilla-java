@@ -20,5 +20,10 @@ public class PoemBeautifier {
         String result3 = text.decorate(words.replaceAll("Evening", "morning"), decoration.replaceAll("Evening","Morning"));
         System.out.println("Poetry in motion: " + result3);
     }
+    public static String replaceAll1(String words, String decoration) {
+        return words.replaceAll("Evening", "morning") + decoration.replaceAll("Evening","Morning");
+
+    }
+
     }
 
