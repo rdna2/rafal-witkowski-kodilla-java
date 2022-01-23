@@ -1,23 +1,32 @@
 package com.kodilla.stream;
 
+import com.kodilla.stream.forumuser.Forum;
+import com.kodilla.stream.forumuser.ForumUser;
 
-import stream.beautifier.PoemBeautifier;
+import java.time.LocalDate;
+import java.util.Map;
+import java.util.stream.Collectors;
+
 
 public class StreamMain {
 
     public static void main(String[] args) {
-        PoemBeautifier poemBeautified = new PoemBeautifier();
 
-        System.out.println("PoemBeautifying procedure: ");
-        poemBeautified.beautify("Beautiful Evening", "  - Indeed, it is.", (words,decoration) -> words + decoration);
-        poemBeautified.beautify(" Beautiful Evening ", "ABC", (words,decoration) -> decoration + words + decoration);
-        poemBeautified.upper("Beautiful Evening ", " - Indeed, it is", (words,decoration) -> words + decoration);
-        poemBeautified.subsequence("Beautiful Evening ", " - Evening to you", (words,decoration) -> words + decoration);
-        poemBeautified.replaceAll("Beautiful Evening ", " - Evening to you", (words,decoration) -> words + decoration);
-        poemBeautified.replaceAll("Beautiful Evening ", " - Evening to you", PoemBeautifier::replaceAll1);
+        Forum theUsers = new Forum();
 
-        System.out.println("Using Stream to generate even numbers from 1 to 20");
-        com.kodilla.stream.iterate.NumbersGenerator.generateEven(20);
-    }
+final LocalDate twentyYearsLimit = LocalDate.of(2002,1,23);
 
-}
+        Map<Integer, ForumUser> theUsersMap = theUsers.getUserList().stream()
+                .filter(user -> user.getGender()=='M')
+                .filter(user -> user.getDob().isBefore(twentyYearsLimit))
+                .filter(user -> user.getPostsQty()>0)
+                .collect(Collectors.toMap(ForumUser::getUserId, user -> user));
+
+                theUsersMap.entrySet().stream()
+                        .map(entry->entry.getKey() + ": " +entry.getValue())
+                        .forEach(System.out::println);
+
+
+
+    }     }
+
