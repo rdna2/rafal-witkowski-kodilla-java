@@ -11,12 +11,10 @@ public final class Country {
         this.countryName = countryName;
         this.peopleQuantity = peopleQuantity;
     }
-
-    public String getName() {
+    public String getCountryName() {
         return countryName;
     }
-
-    public BigDecimal getNumberOfPeople() {
+    public BigDecimal getPeopleQuantity() {
         return peopleQuantity;
     }
 
@@ -27,7 +25,6 @@ public final class Country {
         Country country = (Country) o;
         return countryName.equals(country.countryName);
     }
-
     @Override
     public int hashCode() {
         return Objects.hash(countryName);

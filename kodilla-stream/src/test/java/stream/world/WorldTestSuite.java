@@ -1,42 +1,44 @@
-package com.kodilla.stream.world;
+package stream.world;
 
-import org.junit.jupiter.api.Test;
+import com.kodilla.stream.world.Continent;
+import com.kodilla.stream.world.Country;
+import com.kodilla.stream.world.World;
+import org.junit.Assert;
+import org.junit.Test;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+    public class WorldTestSuite {
+        @Test
+        public void testGetPeopleQuantity() {
+            //Given
+            List<Country> countryListEuropa = new ArrayList<>();
+            countryListEuropa.add(new Country("Slovakia", new BigDecimal("5000000")));
+            countryListEuropa.add(new Country("Russia", new BigDecimal("180000000")));
+            countryListEuropa.add(new Country("Germany", new BigDecimal("80000000")));
 
-public class WorldTestSuite {
+            List<Country> countryListNorthAmerica = new ArrayList<>();
+            countryListNorthAmerica.add(new Country("USA", new BigDecimal("340000000")));
+            countryListNorthAmerica.add(new Country("Canada", new BigDecimal("30000000")));
+            countryListNorthAmerica.add(new Country("Mexico", new BigDecimal("150000000")));
 
-    @Test
-    public void getPeopleQuantity() {
-        //Given
-        World world = new World();
+            List<Country> countryListAsia= new ArrayList<>();
+            countryListAsia.add(new Country("Japan", new BigDecimal("130000000")));
+            countryListAsia.add(new Country("Indonesia", new BigDecimal("200000000")));
+            countryListAsia.add(new Country("India", new BigDecimal("1000000000")));
 
-        Continent northAmerica = new Continent("NorthAmerica");
-        Continent europa = new Continent("Europa");
-        Continent asia = new Continent ("Asia");
-        world.addContinents(northAmerica);
-        world.addContinents(europa);
-        world.addContinents(asia);
-        world.addContinents(new Continent("NorthAmerica"));
-        world.addContinents(new Continent("Europa"));
-        world.addContinents(new Continent ("Asia"));
-        List<Country> countriesList = new ArrayList<>();
-        countriesList.add(new Country("USA", new BigDecimal("340000000")));
-        countriesList.add(new Country("Germany", new BigDecimal("80000000")));
-        countriesList.add(new Country("India", new BigDecimal("1000000000")));
-        Country usa = new Country("USA", new BigDecimal("340000000"));
-        Country germany = new Country("Germany", new BigDecimal("80000000"));
-        Country india = new Country("India", new BigDecimal("1000000000"));
-        northAmerica.addCountry(usa);
-        europa.addCountry(germany);
-        asia.addCountry(india);
-        //When
-        BigDecimal expectedPeople = new BigDecimal("1420000000");
-        //Then
-        assertEquals(expectedPeople, world.getPeopleQuantity());
+
+            List<Continent> continentList = new ArrayList<>();
+            continentList.add(new Continent("Europe", countryListEuropa));
+            continentList.add(new Continent("Asia", countryListAsia));
+            continentList.add(new Continent("North America", countryListNorthAmerica));
+
+            World world = new World(continentList);
+            //When
+            world.getPeopleQuantity();
+            //Then
+            Assert.assertEquals(new BigDecimal("2115000000"), world.getPeopleQuantity());
+        }
     }
-}
