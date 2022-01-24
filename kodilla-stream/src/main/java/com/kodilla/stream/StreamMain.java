@@ -14,11 +14,14 @@ public class StreamMain {
 
         Forum theUsers = new Forum();
 
-final LocalDate twentyYearsLimit = LocalDate.of(2002,1,23);
+
+final LocalDate now = LocalDate.now();
+final LocalDate twentyYearsBack = now.minusYears(20);
+
 
         Map<Integer, ForumUser> theUsersMap = theUsers.getUserList().stream()
                 .filter(user -> user.getGender()=='M')
-                .filter(user -> user.getDob().isBefore(twentyYearsLimit))
+                .filter(user -> user.getDob().isBefore(twentyYearsBack))
                 .filter(user -> user.getPostsQty()>0)
                 .collect(Collectors.toMap(ForumUser::getUserId, user -> user));
 
