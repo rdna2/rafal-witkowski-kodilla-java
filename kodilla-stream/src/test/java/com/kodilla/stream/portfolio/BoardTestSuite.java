@@ -155,7 +155,7 @@ class BoardTestSuite {
 
         List<TaskList> inProgressTasks = new ArrayList<>();
         inProgressTasks.add(new TaskList("In progress"));
-        double averageDaysWorkingOnTask = project.getTaskLists().stream()
+        double sumOfDaysWorkingOnTask = project.getTaskLists().stream()
                 .filter(inProgressTasks::contains)
                 .flatMap(tl -> tl.getTasks().stream())
                 .map(Task::getCreated)
@@ -163,7 +163,7 @@ class BoardTestSuite {
                 .reduce(0,(sum,current)->sum+=current);
 
         //Then
-        assertEquals(30, averageDaysWorkingOnTask);
+        assertEquals(30, sumOfDaysWorkingOnTask);
 }
     @Test
     void testAddTaskListAverageWorkingOnTask() {
