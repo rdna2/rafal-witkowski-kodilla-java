@@ -9,15 +9,15 @@ public class Task {
     private final User assignedUser;
     private final User creator;
     private final LocalDate created;
-    private final LocalDate dedline;
+    private final LocalDate deadline;
 
-    public Task(final String title, final String description, final User assignedUser, final User creator, final LocalDate created, final LocalDate dedline) {
+    public Task(final String title, final String description, final User assignedUser, final User creator, final LocalDate created, final LocalDate deadline) {
         this.title = title;
         this.description = description;
         this.assignedUser = assignedUser;
         this.creator = creator;
         this.created = created;
-        this.dedline = dedline;
+        this.deadline = deadline;
     }
     public String getTitle() {
         return title;
@@ -34,8 +34,8 @@ public class Task {
     public LocalDate getCreated() {
         return created;
     }
-    public LocalDate getDedline() {
-        return dedline;
+    public LocalDate getDeadline() {
+        return deadline;
     }
 
     @Override
@@ -46,7 +46,7 @@ public class Task {
                 ", assignedUser=" + assignedUser +
                 ", creator=" + creator +
                 ", created=" + created +
-                ", dedline=" + dedline +
+                ", dedline=" + deadline +
                 '}';
     }
 }
