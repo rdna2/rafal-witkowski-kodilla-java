@@ -17,16 +17,13 @@ public class OrderProcessor {
     public OrderDto process(final OrderRequest orderRequest) {
         boolean isOrdered = orderService.order(orderRequest.getUser(), orderRequest.getProduct(), orderRequest.getOrderDate());
 
-        if (isOrdered) {
-            orderRepository.newOrder(orderRequest.getUser(), orderRequest.getProduct(), orderRequest.getOrderDate());
-            System.out.println( "Our valued Customer " + orderRequest.getUser().getFirstName() + " " + orderRequest.getUser().getLastName());
-            System.out.println( "Your order of: " + orderRequest.getProduct().getProductName() + ", Product ID: "
-                    + orderRequest.getProduct().getProductID() +" has been successfully processed!");
-            System.out.println( "The value of your purchase is: $" + orderRequest.getProduct().getProductPrice());
-            informationService.inform(orderRequest.getUser());
+        if (isOrdered && orderRequest.getProduct().getAvailability()>0) {
+           informationService.inform(orderRequest.getUser());
+           orderRepository.newOrder(orderRequest.getUser(), orderRequest.getProduct(), orderRequest.getOrderDate());
+
             return new OrderDto(orderRequest.getUser(), true);
         } else {
-            System.out.println("We regret to inform you that your order has not been processed!");
+           informationService.unsuccessfulOrder(orderRequest.getUser());
             return new OrderDto(orderRequest.getUser(), false);
         }
     }

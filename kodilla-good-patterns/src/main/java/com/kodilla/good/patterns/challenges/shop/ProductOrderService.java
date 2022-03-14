@@ -6,7 +6,13 @@ public class ProductOrderService implements OrderService{
 
     @Override
     public boolean order(User user, Product product, LocalDate orderDate) {
-        return true;
+
+      System.out.println("(ProductOrderServices printout:)");
+      System.out.println("Order details: " + user.getFirstName() + " " + user.getLastName() +  " has placed an order for: "
+               + product.getProductName() + ", ItemStoreNumber: " + product.getProductStoreNumber() + " at the price of: $" +
+              product.getPrice()+ " on: " + LocalDate.now());
+
+    return true;
     }
 
 }
