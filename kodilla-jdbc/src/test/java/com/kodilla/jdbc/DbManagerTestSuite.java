@@ -58,7 +58,7 @@ class DbManagerTestSuite {
         int counter = 0;
         while (rs.next()) {
             System.out.println(rs.getString("FIRSTNAME") + " " +
-                    rs.getString("LASTNAME") + ", number of posts: " + rs.getInt("POSTS_NUMBER"));
+                    rs.getString("LASTNAME") + ", Number of posts: " + rs.getInt("POSTS_NUMBER"));
             counter++;
         }
         rs.close();
